@@ -21,7 +21,7 @@ jobs:
       - name: PREP - Check out this repository  # because that's where our profile is!
         uses: actions/checkout@v3
         
-      - name: LINT - Run InSpec Check2          # double-check that we don't have any serious issues in our profile code
+      - name: LINT - Run InSpec Check        # double-check that we don't have any serious issues in our profile code
         run: inspec check $PROFILE
 
       - name: DEPLOY - Run a Docker container from nginx
