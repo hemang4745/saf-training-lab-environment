@@ -1,0 +1,17 @@
+name: Demo Security Validation Gold Image Pipeline
+
+on:
+  push:
+    branches: [ main, pipeline ]                # trigger this action on any push to main branch
+
+jobs:
+  gold-image:
+    name: Gold Image NGINX
+    runs-on: ubuntu-20.04
+    env:
+      CHEF_LICENSE: accept                      # so that we can use InSpec without manually accepting the license
+      PROFILE: my_nginx                         # path to our profile
+    steps:
+      - name: PREP - Update runner -y          # updating all dependencies is always a good start
+        run: sudo apt-get update
+      
